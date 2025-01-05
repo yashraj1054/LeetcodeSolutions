@@ -1,0 +1,22 @@
+3360. Stone Removal Game
+
+class Solution {
+    public boolean canAliceWin(int n) {
+        int a=10, b=9, curr=a;
+        while(n>=curr){
+            n = n-curr;
+            if(curr==a){
+                a = a-2;
+                curr = b;
+            } else {
+                b = b-2;
+                curr = a;
+            }
+        }
+        if(curr==a){
+            return false;
+        }
+        return true;
+
+    }
+}
