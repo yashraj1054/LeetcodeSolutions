@@ -1,0 +1,24 @@
+1752 . Check if array is sorted and rotated
+
+class Solution {
+    public boolean check(int[] nums) {
+        int n=nums.length;
+        int cnt=0;
+
+        // Iterate through the array to count the number of inversions
+        for(int i=1; i<n; i++){
+            // If the current element is less than the previous element, it's an inversion
+            if(nums[i-1]>nums[i]){
+                cnt++;
+            }
+        }
+
+        // Check the boundary condition between the first and last elements
+        if(nums[0]<nums[n-1]){
+            cnt++;
+        }
+
+        // If there's at most one inversion, the array can be rotated to be sorted
+        return cnt<=1;
+    }
+}
